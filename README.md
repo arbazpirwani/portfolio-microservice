@@ -1,8 +1,7 @@
-# EXPRESS MICRO SERVICE SKELTON
+# Express Microservice Skeleton
 
-This project Repository Contains the Minimal MicroService Structure That any one can adopt it.
-if you want to build a micro service by using Object Oriented Priciples With Typescript, This 
-Skelton Fits For you
+This repository contains a minimal microservice structure that anyone can adopt.
+If you want to build a microservice using Object-Oriented principles with TypeScript, this skeleton is a perfect fit
 
 ## Packages Installed
 
@@ -13,13 +12,13 @@ Skelton Fits For you
 ### Minimum Requirement
 
 1. Node JS >= 20
-2. Typescript Compiler Installed Globally or Locally
+2. Typescript Compiler (Installed globally or locally)
 
 ### How to Configure
 
-1. Clone the Repo
-2. Install the Dependencies
-3. Run the Developement Server Command
+1. Clone the repository.
+2. Install dependencies
+3. Start the developement Server
 
 ```
 npm install 
@@ -41,8 +40,9 @@ npm run build
 yarn run build
 ```
 
-once builded the compiled files are emitted to the /dist directory
+Once built, the compiled files will be emitted to the /dist directory.
 
-### Docker
 
-The project root contains the Dockerfile for Image Building, use as per the needs
+### Docker Support
+
+The project root contains a Dockerfile for image building. Use it as needed.
