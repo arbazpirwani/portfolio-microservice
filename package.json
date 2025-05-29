@@ -1,0 +1,41 @@
+{
+  "name": "express-microservice",
+  "version": "1.0.0",
+  "description": "Sample Express Microservice",
+  "license": "ISC",
+  "author": "RMAS",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev": "tsc --watch & nodemon ./dist/index.js",
+    "build": "tsc",
+    "start": "yarn run clean && yarn run build && node ./dist/index.js"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.2",
+    "config": "^4.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "debug": "^4.4.1",
+    "express": "^5.1.0",
+    "reflect-metadata": "^0.2.2",
+    "rimraf": "^6.0.1",
+    "routing-controllers": "^0.11.2",
+    "typescript": "^5.8.3",
+    "winson": "^1.0.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.19.5",
+    "@types/config": "^3.3.5",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.18",
+    "@types/debug": "^4.1.12",
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.19",
+    "@types/winston": "^2.4.4"
+  }
+}
