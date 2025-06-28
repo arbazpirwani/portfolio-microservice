@@ -1,4 +1,5 @@
-import { Controller, Post } from "routing-controllers";
+import { Controller, Post, Body } from "routing-controllers";
+import { ILoginRequest } from "./request/ILoginRequest";
 
 @Controller("/api/v1/login")
 export class LoginController {
@@ -11,7 +12,7 @@ export class LoginController {
    * Make Login
    */
   @Post("/")
-  async login(): Promise<any> {
+  async login(@Body() request: ILoginRequest): Promise<any> {
     return {
       message: "Login End Point",
     };
