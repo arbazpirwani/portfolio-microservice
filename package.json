@@ -9,10 +9,11 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "tsc --watch & nodemon ./dist/index.js",
-    "migrate": "node -r dotenv/config && typeorm -d ./dist/config/Database.js migration:run",
+    "migrate": "typeorm -d ./dist/config/Database.js migration:run",
     "build": "tsc",
     "start": "yarn run clean && yarn run build && node ./dist/index.js"
   },
+  "typeorm": "typeorm-ts-node-esm",
   "dependencies": {
     "body-parser": "^2.2.0",
     "class-transformer": "^0.5.1",
@@ -26,6 +27,7 @@
     "reflect-metadata": "^0.2.2",
     "rimraf": "^6.0.1",
     "routing-controllers": "^0.11.2",
+    "ts-node": "^10.9.2",
     "typeorm": "^0.3.25",
     "typescript": "^5.8.3",
     "winson": "^1.0.0",

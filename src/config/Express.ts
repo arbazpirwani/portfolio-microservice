@@ -38,11 +38,6 @@ export class ExpressConfig {
    * Loading the Database connection For the Application
    */
   #loadDatabaseConnection() {
-    console.log({
-      env: process.env.DATABASE_USERNAME
-    })
-
-
     AppDataSource.initialize()
       .then(() => logger.info(`Database connection initialized successfully`))
       .catch((error) => {

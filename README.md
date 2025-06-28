@@ -43,11 +43,22 @@ yarn run build
 Once built, the compiled files will be emitted to the /dist directory.
 
 
-### RSA PUBLIC AND PRIVATE KEY COMMAND
+### RSA PUBLIC AND PRIVATE KEY COMMANDS FOR SIGNING THE JWT
 
-openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:4096
-openssl rsa -in private_key.pem -pubout -out public_key.pem
+openssl genpkey -algorithm RSA -out ./auth_keys/private_key.pem -pkeyopt rsa_keygen_bits:4096
+openssl rsa -in ./auth_keys/private_key.pem -pubout -out ./auth_keys/public_key.pem
 
+### Type ORM Migration Creation
+
+```
+npx typeorm migration:create ./src/migrations/MigrationFileName
+```
+
+### Type ORM Migrate Table
+
+```
+yarn run migrate
+```
 
 ### Docker Support
 
