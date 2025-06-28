@@ -9,6 +9,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "dev": "tsc --watch & nodemon ./dist/index.js",
+    "migrate": "node -r dotenv/config && typeorm -d ./dist/config/Database.js migration:run",
     "build": "tsc",
     "start": "yarn run clean && yarn run build && node ./dist/index.js"
   },

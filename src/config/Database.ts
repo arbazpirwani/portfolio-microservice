@@ -1,5 +1,8 @@
 import { DataSource } from "typeorm";
 
+// Import Migrations Here
+import { UserDetails1751105368579 as UserDetails } from "../migrations/1751105368579-UserDetails";
+
 // Import Entities Here
 
 const AppDataSource = new DataSource({
@@ -9,6 +12,9 @@ const AppDataSource = new DataSource({
   username: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.APPLICATION_DATABASE,
+  migrations: [
+    UserDetails
+  ]
 });
 
 export default AppDataSource;

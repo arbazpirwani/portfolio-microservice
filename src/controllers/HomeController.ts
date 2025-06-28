@@ -4,10 +4,11 @@ import { Controller, Get } from "routing-controllers";
 export class HomeController {
   constructor() {}
 
-  @Get("/")
-  async home(): Promise<any> {
+  @Get("/health")
+  async health(): Promise<any> {
     return {
-      message: "Welcome to Express Micro service",
+      status: true,
+      message: 'Iam Alive'
     };
   }
 }
