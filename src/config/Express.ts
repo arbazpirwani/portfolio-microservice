@@ -54,7 +54,7 @@ export class ExpressConfig {
   setUpControllers() {
     const controllersPath = resolve("dist", "controllers");
     useExpressServer(this.app, {
-      controllers: [`${controllersPath}/*.js`],
+      controllers: [`${controllersPath}/**/*.js`],
     });
   }
 }
