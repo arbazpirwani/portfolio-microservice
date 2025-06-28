@@ -6,6 +6,7 @@ import { DataSource } from "typeorm";
 import { UserDetails1751105368579 as UserDetails } from "../migrations/1751105368579-UserDetails";
 
 // Import Entities Here
+import { UserDetailEntity } from '../entities/UserLoginDetail';
 
 const AppDataSource = new DataSource({
   type: "postgres",
@@ -16,6 +17,9 @@ const AppDataSource = new DataSource({
   database: process.env.APPLICATION_DATABASE,
   migrations: [
     UserDetails
+  ],
+  entities: [
+    UserDetailEntity
   ]
 });
 
