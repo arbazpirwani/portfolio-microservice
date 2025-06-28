@@ -43,6 +43,12 @@ yarn run build
 Once built, the compiled files will be emitted to the /dist directory.
 
 
+### RSA PUBLIC AND PRIVATE KEY COMMAND
+
+openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:4096
+openssl rsa -in private_key.pem -pubout -out public_key.pem
+
+
 ### Docker Support
 
 The project root contains a Dockerfile for image building. Use it as needed.

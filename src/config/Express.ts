@@ -6,6 +6,9 @@ import * as bodyparser from "body-parser";
 
 import { useExpressServer } from "routing-controllers";
 
+import AppDataSource from "./Database";
+import logger from "../common/logging";
+
 export class ExpressConfig {
   /**
    * @public
@@ -22,8 +25,31 @@ export class ExpressConfig {
     this.app.use(bodyparser.json({ limit: "200kb" }));
     this.app.use(bodyparser.urlencoded({ extended: false }));
 
+    // initializing database connection
+    this.#loadDatabaseConnection();
+
     // Setting Up the Application Controller
     this.setUpControllers();
+
+  }
+
+  /**
+   * @method private
+   * Loading the Database connection For the Application
+   */
+  #loadDatabaseConnection() {
+    console.log({
+      env: process.env.DATABASE_USERNAME
+    })
+
+
+    AppDataSource.initialize()
+      .then(() => logger.info(`Database connection initialized successfully`))
+      .catch((error) => {
+        logger.error(`Database initialization failed ! ${error?.message}`);
+        // Exit the Application if there is any error occured in the database initialization
+        process.exit(1);
+      });
   }
 
   /**
