@@ -1,22 +1,31 @@
-import { Controller, Get, UseBefore } from "routing-controllers";
-
+import {
+  Controller,
+  Get,
+  UseBefore,
+  QueryParams,
+  CurrentUser
+} from "routing-controllers";
 import { AuthMiddleware } from "../../middleware/AuthMiddleware";
+import { OrderService, OrderFilters, PaginatedOrdersResponse } from "../../service/OrderService";
 
 @Controller("/api/v1/orders")
-@UseBefore(AuthMiddleware)
+// @UseBefore(AuthMiddleware)
 export class OrdersController {
-  /**
-   * Controller Contructor
-   */
-  constructor() {}
+  private orderService: OrderService;
+
+  constructor() {
+    this.orderService = new OrderService();
+  }
 
   /**
-   * Getting the Initial JSON response
+   * Get all orders with pagination
+   * GET /api/v1/orders
    */
   @Get("/")
-  async get(): Promise<any> {
-    return {
-      message: "Orders Controllers",
-    };
+  async getOrders(
+      @QueryParams() filters: OrderFilters
+  ): Promise<PaginatedOrdersResponse> {
+    return this.orderService.getUserOrders(1, filters);
   }
+
 }

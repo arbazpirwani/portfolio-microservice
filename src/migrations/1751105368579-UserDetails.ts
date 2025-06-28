@@ -71,7 +71,7 @@ export class UserDetails1751105368579 implements MigrationInterface {
 
   /**
    * Drop The Table
-   * @param queryRunner 
+   * @param queryRunner
    */
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable(this.#TABLE_NAME)
